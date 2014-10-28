@@ -1,0 +1,36 @@
+table {
+	border: solid black 1px;
+	font-size: 30px;
+	font-family: "Helvetica Neue";
+	font-weight: lighter;
+}
+
+#title{
+	border: solid black 2px;
+	margin: 0;
+	text-align: center;
+}
+
+th{
+	text-align: left
+}
+
+td{
+	text-align: center
+}
+/*To eliminate thumbnail borders*/
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    background: none;
+}
+
+.logo{
+  border-radius: 50%;
+  height: 100px;
+  width:100px
+}
+
+.odometer{
+	font-size: 50px;
+}

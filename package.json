@@ -1,0 +1,27 @@
+{
+  "name": "Plan_compare",
+  "version": "1.0.0",
+  "description": "Compare mobile carriers plans in a few countries",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lalo Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.0",
+    "body-parser": "^1.9.2",
+    "connect-flash": "^0.1.1",
+    "cookie-session": "^1.0.2",
+    "ejs": "^1.0.0",
+    "ejs-locals": "^1.0.2",
+    "engine": "0.0.10",
+    "express": "^4.10.0",
+    "method-override": "^2.3.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "pg": "^3.6.2",
+    "sequelize": "^2.0.0-rc2",
+    "sequelize-cli": "^0.3.3"
+  }
+}
