@@ -1,0 +1,218 @@
+<% layout ('layout') %>
+
+
+
+
+
+
+  <div class="row" id="see">
+  	<a class="btn btn-success btn-lg .col-md-4" data-toggle="modal" data-target="#login" class="">Login</a>
+
+<!--     After user authenticated -->
+    <a class="btn btn-danger btn-lg .col-md-4" data-toggle="modal" data-target="#add-new-carrier" class="">Add new Carrier</a>
+    <a class="btn btn-warning btn-lg .col-md-4" data-toggle="modal" data-target="#add-new-plan" class="">Add new Plan</a>
+    <a class="btn btn-primary btn-lg .col-md-4" data-toggle="modal" data-target="#add-new-device" class="">Add new Device</a>
+  </div>
+
+<% include error %>
+
+
+<!--Login Modal -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="login-form" sytle="width:300px">
+          <div class="form-group">
+            <input type="text" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" />
+            <label class="login-field-icon fui-user" for="login-name"></label>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" />
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+          <a class="btn btn-primary btn-lg btn-block" href="#">Log in</a>
+          <a class="login-link" href="#">Lost your password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for adding Carriers -->
+<div class="modal fade" id="add-new-carrier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <form method="post" action="/carrier">
+        <div class="modal-body">
+          <h4>Carrier Name</h4>
+          <div class="margin-top-20">
+            <input name="carrier" 
+              id="carrier_name" 
+              class="form-control"
+              placeholder="Carrier Name" />
+          </div>
+          <h4 class="margin-top-20">Country Code</h4>
+          <div class="margin-top-20">
+            <select name="country" class="form-control select select-warning" data-toggle="select">
+              <option>PE</option>
+              <option>CL</option>
+              <option>AR</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-carrier" type="submit" class="btn btn-success">Add carrier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--/Modal-->
+
+<!-- Modal for adding Plans -->
+<div class="modal fade" id="add-new-plan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <form method="post" action="/plan">
+        <div class="modal-body">
+          <h4>Carrier Name</h4>
+          <div class="margin-top-20">
+            <input name="carrierplan" 
+              id="carrier_plan" 
+              class="form-control"/>
+          </div>
+          <h4>Plan Name</h4>
+          <div class="margin-top-20">
+            <input 
+              name="planname"
+              id="plan_name" 
+              class="form-control"/>
+          </div>
+          <h4>Data GB</h4>
+          <div class="margin-top-20">
+            <input name="data" 
+              id="data_gb" 
+              class="form-control"/>
+          </div>
+          <h4>Talk Minutes</h4>
+          <div class="margin-top-20">
+            <input 
+              name="talk"
+              id="talk_min" 
+              class="form-control"/>
+          </div>
+          <h4>SMS</h4>
+          <div class="margin-top-20">
+            <input name="sms" 
+              id="sms_number" 
+              class="form-control"/>
+          </div>
+          <h4> Private Network min</h4>
+          <div class="margin-top-20">
+            <input 
+              name="privatenet"
+              id="private_net_min" 
+              class="form-control"/>
+          </div>
+          <h4>Montly Price</h4>
+          <div class="margin-top-20">
+            <input name="monthly" 
+              id="monthly_price" 
+              class="form-control"/>
+          </div>
+          <h4>Price Range</h4>
+          <div class="margin-top-20">
+            <select name="range" class="form-control select select-warning" data-toggle="select">
+              <option value="1">Less than S/.80 </option>
+              <option value="2">Between S/. 80 & S/. 100 </option>
+              <option value="3">Between S/. 100 & S/. 130 </option>
+              <option value="4">Between S/. 130 & S/. 160 </option>
+              <option value="5">More than S/.160 </option>
+            </select>
+          </div>
+          <h4>LTE Support</h4>
+          <div class="margin-top-20">
+            <select name="LTE" class="form-control select select-warning" data-toggle="select">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <h4 class="margin-top-20">Other costs</h4>
+          <div class="margin-top-20">
+            <input 
+              name="other"
+              id="other_costs" 
+              class="form-control"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-plan" type="submit" class="btn btn-warning">Add Plan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--/Modal-->
+
+<!-- Modal for adding Devices -->
+<div class="modal fade" id="add-new-device" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <form method="post" action="/device">
+        <div class="modal-body">
+          <h4>Device Name</h4>
+          <div class="margin-top-20">
+            <input name="devicename" 
+              id="device_name" 
+              class="form-control"/>
+          </div>
+          <h4>Brand</h4>
+          <div class="margin-top-20">
+            <input name="brandname" 
+              id="device_brand" 
+              class="form-control"/>
+          </div>
+          <h4>Price</h4>
+          <div class="margin-top-20">
+            <input 
+              name="deviceprice"
+              id="device_price" 
+              class="form-control"/>
+          </div>
+          <h4>Type of contract</h4>
+          <div class="margin-top-20">
+              <select name="contracttype" id="contract_type" class="form-control select select-warning" data-toggle="select">
+                <option>New</option>
+                <option>Renew</option>
+              </select>
+          </div>
+          <h4>Plan Name</h4>
+          <div class="margin-top-20">
+            <input 
+              name="plandevice"
+              id="plan_device" 
+              class="form-control"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-device" type="submit" class="btn btn-warning">Add Device</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--/Modal-->
+
+

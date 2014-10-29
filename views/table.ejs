@@ -1,22 +1,4 @@
-<!doctype html>
-<html>
-	<head>
-
-		    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="/Table/table.css">
-
-	<link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
-	<script src="http://github.hubspot.com/odometer/odometer.js"></script>
-
-	</head>
-	<body>
+<% layout ('layout') %>
 	<table class="table">
 		<th id="title" colspan="6"> Plan</th>
 		<tr>
@@ -28,10 +10,10 @@
 		</tr>
 		<tr>
 			<th class="price" colspan="2">Price</th>
-			<td > <p id="odometer1" class="odometer">0</p></td>
-			<td > <p id="odometer2" class="odometer">0</p></td>
-			<td > <p id="odometer3" class="odometer">0</p></td>
-			<td > <p id="odometer4" class="odometer">0</p></td>
+			<td > <p id="price1" class="odometer">0</p></td>
+			<td > <p id="price2" class="odometer">0</p></td>
+			<td > <p id="price3" class="odometer">0</p></td>
+			<td > <p id="price4" class="odometer">0</p></td>
 		</tr>
 		<tr>
 			<th class="talk" colspan="2">Talk</th>
@@ -186,21 +168,3 @@
 			</td>
 		</tr>
 	</table>
-
-
-
-
-
-	<script>
-
-	setTimeout(function(){
-	    odometer1.innerHTML = 100;
-	    odometer2.innerHTML = 150;
-	    odometer3.innerHTML = 100;
-	    odometer4.innerHTML = 100;
-	}, 2000);
-	
-	</script>
-
-	</body>
-</html>

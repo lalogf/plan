@@ -1,0 +1,40 @@
+<% layout ('layout') %>
+
+<div class="container" style="height:450px"> 
+  <div id="center">
+    <div class="col-xs-4">
+      <h4>Type of contract</h4>
+      <select class="form-control select select-info" data-toggle="select">
+        <option value="0">Select</option>
+        <option value="1">New</option>
+        <option value="2">Renew</option>
+      </select>
+    </div> <!-- /.col-xs-3 -->
+    <div class="col-xs-4">
+      <h4>Current carrier</h4>
+      <select name="main_carrier" class="form-control select select-success" data-toggle="select">
+        <option>Select</option>
+        <option>Bitel</option>
+        <option>Claro</option>
+        <option>Entel</option>
+        <option>Movistar</option>
+      </select>
+    </div> <!-- /.col-xs-3 -->
+    <div class="col-xs-4">
+      <h4>Monthly pay</h4>
+      <select class="form-control select select-danger" data-toggle="select">
+        <option value="0">Monthly payment</option>
+        <option value="1">Menos de S/.80</option>
+        <option value="2">Entre S/. 80 y 100 </option>
+        <option value="3">Entre S/. 100 y 130</option>
+        <option value="4">Entre S/. 130 y 160</option>
+        <option value="5">Más de S/. 160 </option>
+
+      </select>
+    </div>
+  </div> <!-- /.col-xs-3 -->
+
+  <div class="col-xs-3" id="see">
+    <a href="/options" class="btn btn-block btn-lg btn-warning">Explore</a>
+  </div>
+
