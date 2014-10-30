@@ -42,11 +42,20 @@ app.use(flash());
 
 
 app.get('/', function (req, res){
-	res.render('home');
+    var templateData={
+        messages: req.flash('info')
+    };
+    models.Carrier.findAll()
+    .then(function (carriers){
+        templateData.carriers = carriers;
+    })
+    .finally(function(){
+        res.render('home', templateData)
+    })
 });
 
-app.get('/options', function (req, res){
-    models.Plan.findAll({where: { price_range: "3" }})
+app.get('/options/:id', function (req, res){
+    models.Plan.findAll({where: { price_range: req.params.id }})
     .then(function (options){
         res.render('table', {
             options: options

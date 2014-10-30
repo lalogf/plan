@@ -29,15 +29,50 @@ h4{
 	margin-left: 35%
 }
 
-/*#center { 
-	display: inline-block; 
-	top: 50%; 
-	left: 50%; 
-	width: 100%; 
-	text-align: center; 
-}*/
 
+
+.grid-menu{margin: 0 auto;}
+
+.grid-box{
+    float: left;
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
 }
+.grid-box-large{width: 100%;}
+
+.grid-box a{
+    display: block;
+    margin: 0 auto;
+    float: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 21px;
+    color: #fff;
+    border-radius: 
+}
+
+.grid-box strong,
+/*.grid-box span*/{
+    display: block;
+}
+.grid-box strong{text-align: center; margin-bottom: 23px;}
+.grid-box-large strong{text-align: left;}
+
+
+
+.blue{background: rgba(103, 176, 209, 0.8);}
+.green{background: rgba(96, 205, 155, 0.8);}
+.red{background: rgba(232,  115, 82, 0.8);}
+.yellow{background: rgba( 235, 200, 94, 0.8);}
+.turquoise{background: rgba(47,  153, 155, 0.8);}
+.black{background: rgba(51, 51, 51, 0.8);}
+.brown{background: rgba(164, 139, 96, 0.8);}
+
+
+
 
 /*
  * Off Canvas
@@ -67,129 +102,5 @@ h4{
     margin-left: 10px;
   }
 }
-
-
-/* Sidebar navigation */
-.nav-sidebar {
-  background-color: #f5f5f5;
-  margin-right: -15px;
-  margin-bottom: 20px;
-  margin-left: -15px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a {
-  color: #fff;
-  background-color: #428bca;
-}
-
-/*
- * Main content
- */
-
-.main {
-  padding: 20px;
-  background-color: #fff;
-}
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-.main .page-header {
-  margin-top: 0;
-}
-
-/*-----------------------------------*/
-/* Table Pricing */
-/*-----------------------------------*/
-
-.price_item{background: #3bbec0;}
-.price_item.blue{background: #67b0d1;}
-.price_item.green{background: #60cd9b;}
-.price_item.red{background: #e87352;}
-.price_item.yellow{background: #ebc85e;}
-.price_item.turquoise{background: #1d5f60;}
-.price_item.black{background: #333;}
-.price_item.brown{background: #a48b60;}
-
-.price_item{text-align: center; margin-bottom: 30px;}
-
-/* price style 1 */
-
-.price_col_head strong{
-    display: block;
-    background: #bbb;
-    background: rgba(0,0,0,0.05);
-    padding: 25px 10px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    text-transform: uppercase;
-}
-
-.price_body_top{
-    padding: 35px 15px 45px 10px;
-    border-bottom: 1px solid #888;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.pricing_box .price{
-    display: inline-block;
-    position: relative;
-    font-size: 60px;
-    font-weight: 400;
-    color: #fff;
-}
-.pricing_box .price *{position: absolute;}
-
-.pricing_box .price em{
-    font-size: 0.6em;
-    font-weight: 300;
-    font-style: normal;
-    top: 0.32em;
-    left: -0.6em;
-}
-.pricing_box .price sup{
-    font-size: 0.44em;
-    top: auto;
-    left:103%;
-    bottom: 0.68em;
-}
-.pricing_box .price sub{
-    font-size: 0.24em;
-    font-weight: 300;
-    color: #afe4ff;
-    left:100%;
-    bottom: 0.2em;
-}
-
-.price_col_body li{
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 24px;
-    padding: 22px 10px 23px;
-    border-bottom: 1px solid #888;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.price_col_body li span.large{
-    font-size: 30px;
-    vertical-align: top;
-}
-
-.price_col_foot{
-    background: #bbb;
-    background: rgba(0,0,0,0.05);
-    padding: 12px 0 13px;
-}
-.price_col_foot .btn span, .price_col_foot .btn input{background-color: transparent;}
-
-
-
-
-
 
 

@@ -13,11 +13,14 @@ table {
 }
 
 th{
-	text-align: left
+	text-align: left;
+	font-size: 30px;
+	font-weight: 600;
 }
 
 td{
-	text-align: center
+	text-align: center;
+	font-weight: 200;
 }
 /*To eliminate thumbnail borders*/
 .thumbnail {
