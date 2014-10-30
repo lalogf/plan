@@ -84,9 +84,15 @@
         <div class="modal-body">
           <h4>Carrier Name</h4>
           <div class="margin-top-20">
-            <input name="carrierplan" 
+            <select name="carrierplan" class="form-control select select-warning" data-toggle="select">
+              <% carriers.forEach(function(c){%>
+                <option><%= c.carrier_name %></option>
+              <%})%>
+
+            </select>
+<!--             <input name="carrierplan" 
               id="carrier_plan" 
-              class="form-control"/>
+              class="form-control"/> -->
           </div>
           <h4>Plan Name</h4>
           <div class="margin-top-20">
@@ -199,10 +205,16 @@
           </div>
           <h4>Plan Name</h4>
           <div class="margin-top-20">
-            <input 
+            <select name="plandevice" id="plan_device" class="form-control select select-warning" data-toggle="select">
+              <% plans.forEach(function(p){%>
+                <option><%= p.plan_name %></option>
+              <%})%>
+            </select>
+
+<!--             <input 
               name="plandevice"
               id="plan_device" 
-              class="form-control"/>
+              class="form-control"/> -->
           </div>
         </div>
         <div class="modal-footer">

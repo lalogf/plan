@@ -46,12 +46,31 @@ app.get('/', function (req, res){
 });
 
 app.get('/options', function (req, res){
-	res.render('table');
+    models.Plan.findAll({where: { price_range: "3" }})
+    .then(function (options){
+        res.render('table', {
+            options: options
+        })
+
+    })
+	
 });
 
 app.get('/admin', function (req, res){
-    res.render('admin', {
+    var templateData = {
         messages: req.flash('info')
+    };
+
+    models.Carrier.findAll()
+    .then(function (carriers){
+        templateData.carriers = carriers;
+        return models.Plan.findAll();
+    })
+    .then(function (plans) {
+        templateData.plans = plans;
+    })
+    .finally(function() {
+        res.render('admin', templateData);
     });
 });
 
