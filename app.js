@@ -70,29 +70,22 @@ app.use(flash());
 
 //Google
 
-
-// Initialize Passport!  Also use passport.session() middleware, to support
-// persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 app.get('/auth/google', 
-  passport.authenticate('google', { failureRedirect: 'http://www.ga.co' }),
+  passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/admin');
   });
 
 
 app.get('/auth/google/return', 
-  passport.authenticate('google', { failureRedirect: 'http://www.facebook.com' }),
+  passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
-    if(req.user.emails[0].value ==="lalogf@gmail.com"){
     res.redirect('/admin');
-} else {
-    res.redirect('/login')
-}
-  });
+});
 
 app.get('/login', function(req, res){
   res.render('login', { user: req.user });
@@ -104,19 +97,6 @@ app.get('/logout', function(req, res){
 });
 
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { 
-    return next(); 
-    res.redirect('/admin')
-}
-  // res.redirect('/admin');
-  else {
-    res.redirect('/')
-  }
-}
-
-
-//Setting up |^|
 
 
 app.get('/', function (req, res){
@@ -151,13 +131,8 @@ app.get('/options/:id', function (req, res){
 });
 
 
-
-
-
-
-
-
-app.get('/admin', ensureAuthenticated, function (req, res){
+app.get('/admin', function (req, res){
+    if(req.isAuthenticated() && req.user.emails[0].value ==="lalogf@gmail.com"){
     var templateData = {
         messages: req.flash('info'),
         user: req.user
@@ -174,7 +149,9 @@ app.get('/admin', ensureAuthenticated, function (req, res){
     .finally(function() {
         res.render('admin', templateData);
     });
-});
+} else {
+    res.redirect('/')
+}});
 
 app.post('/carrier', function (req, res){
     models.Carrier.create({

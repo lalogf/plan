@@ -1,0 +1,13 @@
+<% layout ('layout') %>
+
+<div class="container">
+	<div class="row pagination-centered">
+		<div class="col-xs-4 col-xs-offset-4">
+			<%if(!user){%> 
+				<a class="btn btn-success btn-lg .col-md-4" href="/auth/google">Login</a>
+			<%} else{%>
+				<a class="btn btn-danger btn-lg .col-md-4" href="/logout">Logout</a>
+			<%}%>
+		</div>
+	</div>
+</div>
