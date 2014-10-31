@@ -23,8 +23,8 @@ passport.deserializeUser(function(obj, done) {
 
 
 passport.use(new GoogleStrategy({
-    returnURL: 'http://localhost:3000/auth/google/return',
-    realm: 'http://localhost:3000/'
+    returnURL: 'https://ghastly-ghost-7309.herokuapp.com/auth/google/return',
+    realm: 'https://ghastly-ghost-7309.herokuapp.com/'
   },
   function(identifier, profile, done) {
     // asynchronous verification, for effect...
