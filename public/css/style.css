@@ -1,19 +1,8 @@
-/*.hello {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline;
-}*/
-
 body{
 	background-image: url("../images/background.jpg");
   background-size: cover;
 }
 
-h4{
-	color: rgba(236, 240, 241,1.0);
-}
 
 .tsc_pricingtable02 li{
 	height: 80px;

@@ -20,6 +20,9 @@ module.exports = {
       contract_type: {
         type: DataTypes.STRING
       },
+      device_image: {
+        type: DataTypes.STRING
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE

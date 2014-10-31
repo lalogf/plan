@@ -32,7 +32,10 @@ module.exports = function(sequelize, DataTypes) {
         msg:"Wrong type of contrat type"
         }
       }
-    }
+    },      
+    device_image: {
+        type: DataTypes.STRING
+      }
   }, {
     classMethods: {
       associate: function(models) {

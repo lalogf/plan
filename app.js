@@ -55,15 +55,29 @@ app.get('/', function (req, res){
 });
 
 app.get('/options/:id', function (req, res){
-    models.Plan.findAll({where: { price_range: req.params.id }})
-    .then(function (options){
-        res.render('table', {
-            options: options
-        })
-
+    var templateData={
+        messages: req.flash('info')
+    };
+    models.Plan.findAll(
+        {where: { price_range: req.params.id },
+        include: [models.Carrier, models.Device],
+        order: [['monthly_price']]
     })
-	
+    .then(function (plans){
+        plans = plans.map(function(plan) {
+            return plan.values;
+        });
+        templateData.options = plans;
+        res.render('table', templateData)
+    })
 });
+
+
+
+
+
+
+
 
 app.get('/admin', function (req, res){
     var templateData = {
@@ -86,7 +100,8 @@ app.get('/admin', function (req, res){
 app.post('/carrier', function (req, res){
     models.Carrier.create({
         carrier_name: req.body.carrier,
-        country_code: req.body.country
+        country_code: req.body.country,
+        carrier_logo: req.body.carrierlogo
     }).then(function (carrier){
         res.redirect('/admin')
     },function (error){
@@ -125,6 +140,7 @@ app.post('/device', function (req, res){
         brand: req.body.brandname,
         price: req.body.deviceprice,
         contract_type: req.body.contracttype,
+        device_image: req.body.deviceimage,
     }).then(function (device){
         models.Device.find({where: { device_name: device.device_name }}).done(function (er, newdevice){
             models.Plan.find({where: { plan_name: req.body.plandevice }}).done(function (err, plan){

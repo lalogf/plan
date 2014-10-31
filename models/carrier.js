@@ -17,8 +17,11 @@ module.exports = function(sequelize, DataTypes) {
         isUppercase: true,
         len: [2,2]
       }
-    } 
-  }, {
+    }, carrier_logo : {
+      type: DataTypes.STRING
+    }
+  },  
+  {
     classMethods: {
       associate: function(models) {
         Carrier.hasMany(models.Plan);

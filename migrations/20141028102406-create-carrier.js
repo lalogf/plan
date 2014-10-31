@@ -13,6 +13,9 @@ module.exports = {
       },
       country_code: {
         type: DataTypes.STRING
+      }, 
+      carrier_logo:{
+        type: DataTypes.STRING
       },
       createdAt: {
         allowNull: false,

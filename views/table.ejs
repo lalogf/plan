@@ -4,14 +4,24 @@
 	<table class="table">
 		<% var col = options.length*2 %>
 		<th id="title" colspan="<%= col %>"> Plan</th>
-<!-- 		<tr>
-			<th colspan="2">Carrier</th>
-			<td .col-md-4><img class="logo" src="images/bitel-logo.png"></td>
-			<td .col-md-4><img class="logo" src="images/claro-logo.png"></td>
-			<td .col-md-4><img class="logo" src="images/entel-logo.png"></td>
-			<td .col-md-4><img class="logo" src="images/movistar-logo.png"></td>
-		</tr> -->
 
+		<tr>
+			<th class="logocarrier" colspan="2">Carrier</th>
+			<% options.forEach(function(o){%>
+			<% o.Carriers.forEach(function(c){%>
+			<td><img class="logo" src="<%= c.carrier_logo %>"></td>
+			<%})%>
+			<%})%>
+
+		</tr>
+
+		<tr>
+			<th class="planname" colspan="2">Plan Name</th>
+			<% var i = 0%>
+			<% options.forEach(function (o){%>
+			<td ><%=o.plan_name%></td>
+			<% }) %>
+		</tr>
 
 		<tr>
 			<th class="price" colspan="2">Price</th>
@@ -54,14 +64,16 @@
 			<th class="devices" colspan="2">Devices</th>
 			
 			<% options.forEach(function(o){%>
-			<td> 
-				<div class=".col-sm-3 .col-md-3">
-				    <div class="thumbnail">
-				      	<img src="http://img.bbystatic.com/BestBuy_US/images/products/1752/1752456_sc.jpg" alt="...">
-				        <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+				<%o.Devices.forEach(function(d){%>
+				<td>
+					<div class="thumbnail">
+				      	<img src="<%= d.device_image %>" alt="...">
+				        	<p><a href="#" class="btn btn-success" role="button">Button</a></p>
 				    </div>
-				  </div>
-			</td>
+				</td>
+
+				<%})%>
+			
 			<%});%> 
 
 		
