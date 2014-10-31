@@ -64,17 +64,31 @@
 			<th class="devices" colspan="2">Devices</th>
 			
 			<% options.forEach(function(o){%>
-				<%o.Devices.forEach(function(d){%>
 				<td>
+				<%o.Devices.forEach(function(d){%>	
 					<div class="thumbnail">
-				      	<img src="<%= d.device_image %>" alt="...">
-				        	<p><a href="#" class="btn btn-success" role="button">Button</a></p>
-				    </div>
-				</td>
+				      	<img src="<%=d.device_image%> " alt="...">
+				      	<div class="caption">
+				      		<p style="font-size: 20px">
+				      		<b style="font-size: 25px"><%=d.device_name%></b><br>
+				      		<b>Price: </b><%=d.price%><br>
+				      		<b>Contract: </b><%=d.contract_type%>
+				      		</p>
+				      		<p><a href="#" class="btn btn-success" role="button">Button</a></p>
 
+				      	</div>
+				        	
+				    </div>
+				
 				<%})%>
+				</td>
 			
 			<%});%> 
+
+
+
+
+
 
 		
 		</tr>

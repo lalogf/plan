@@ -6,10 +6,41 @@ var express = require('express'),
     flash = require('connect-flash'),
     bcrypt = require('bcrypt'),
     pg = require('pg'),
+    passport = require('passport'),
+    util = require('util'),
+    GoogleStrategy = require('passport-google').Strategy,
     engine = require('ejs-locals');
 
 
+//Google
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+
+passport.use(new GoogleStrategy({
+    returnURL: 'http://localhost:3000/auth/google/return',
+    realm: 'http://localhost:3000/'
+  },
+  function(identifier, profile, done) {
+    // asynchronous verification, for effect...
+    process.nextTick(function () {
+      
+      // To keep the example simple, the user's Google profile is returned to
+      // represent the logged-in user. 
+      profile.identifier = identifier;
+      return done(null, profile);
+    });
+  }
+));
+
 var app = express();
+
+
 
 //To store local js and css files
 app.use(express.static(__dirname + '/public'));
@@ -36,6 +67,53 @@ app.use(session({
 
 
 app.use(flash());
+
+//Google
+
+
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.get('/auth/google', 
+  passport.authenticate('google', { failureRedirect: 'http://www.ga.co' }),
+  function(req, res) {
+    res.redirect('/admin');
+  });
+
+
+app.get('/auth/google/return', 
+  passport.authenticate('google', { failureRedirect: 'http://www.facebook.com' }),
+  function(req, res) {
+    if(req.user.emails[0].value ==="lalogf@gmail.com"){
+    res.redirect('/admin');
+} else {
+    res.redirect('/login')
+}
+  });
+
+app.get('/login', function(req, res){
+  res.render('login', { user: req.user });
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { 
+    return next(); 
+    res.redirect('/admin')
+}
+  // res.redirect('/admin');
+  else {
+    res.redirect('/')
+  }
+}
 
 
 //Setting up |^|
@@ -79,9 +157,10 @@ app.get('/options/:id', function (req, res){
 
 
 
-app.get('/admin', function (req, res){
+app.get('/admin', ensureAuthenticated, function (req, res){
     var templateData = {
-        messages: req.flash('info')
+        messages: req.flash('info'),
+        user: req.user
     };
 
     models.Carrier.findAll()
