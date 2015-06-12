@@ -8,11 +8,10 @@ var express = require('express'),
     pg = require('pg'),
     passport = require('passport'),
     util = require('util'),
-    GoogleStrategy = require('passport-google').Strategy,
     engine = require('ejs-locals');
 
 
-//Google
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
