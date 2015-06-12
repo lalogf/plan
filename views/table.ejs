@@ -41,7 +41,11 @@
 		<tr>
 			<th class="talk" colspan="2">Talk</th>
 			<% options.forEach(function(o){%>
-			<td> <%= o.talk_min%></td>
+				<% if(o.talk_min >= 500){%>
+					<td>Unlimited</td>
+				<% } else {%>
+					<td> <%= o.talk_min%></td>
+				<% } %>
 			<%});%>
 			
 		</tr>
@@ -49,14 +53,22 @@
 		<tr>
 			<th class="sms" colspan="2">SMS</th>
 			<% options.forEach(function(o){%>
-			<td> <%= o.sms%></td>
+				<% if(o.sms >= 500){%>
+					<td>Unlimited</td>
+				<% } else {%>
+					<td> <%= o.sms%></td>
+				<% } %>
 			<%});%>
 			
 		</tr>
 		<tr>
 			<th class="sms" colspan="2">Private Network</th>
 			<% options.forEach(function(o){%>
-			<td> <%= o.private_net_min%></td>
+				<% if(o.private_net_min >= 500){%>
+					<td>Unlimited</td>
+				<% } else {%>
+					<td> <%= o.private_net_min%></td>
+				<% } %>
 			<%});%>
 			
 		</tr>

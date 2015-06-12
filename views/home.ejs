@@ -4,12 +4,6 @@
   <div class="row " style="margin: 10px" >
     <div class="col-md-8 col-md-offset-2 text-centered" style="background-color: rgba(0, 0, 0, 0.8); border-radius:20px">
 
-<!--       var country = geoplugin_countryName();
-      $(window).load(function(){
-        $("#where").html("Hello dear friend from Peru" + country + "!")
-      }) -->
-
-
       <h4 id="where" style="color:white">Hello dear friend from Peru</h4><br>
       <p style="color:white">Here you'll find the best option to get a new phone and mobile plan</p>
     </div>
@@ -30,14 +24,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-  $("#renew").click(function(){
-    $(".firststep").toggle();
-    $("#maincarriers").toggle();
-  });
-
-  </script>
   
   <div style="display:none" class="row" id="maincarriers">
     <div class="col-xs-8 col-xs-offset-2 blue" style="border-radius:20px; color:white; text-align:center">
@@ -57,15 +43,6 @@
    <% }) %>
  </div>
 
-
-  <script>
-  $("#new").click(function(){
-    $(".firststep").toggle();
-    $("#pricerange").toggle();
-  });
-
-  </script>
-  
   <div style="display:none" class="row" id="pricerange">
     <div class="col-xs-8 col-xs-offset-2 green" style="border-radius:20px; color:white; text-align:center">
       <p style="font-size: 25px; font-family: helvetica">Now choose how much you're paying currently or you'd like to pay</p>
@@ -77,19 +54,5 @@
       <div class="grid-box green col-md-2"><a href="/options/5" ><span> 160 - < </span></a></div>
   </div>
 
-  <script>
-    $("#maincarriers div div div").click(function(){
-      $("#maincarriers").toggle();
-      $("#pricerange").toggle();
-  });
 
-
-  </script>
 </div>
-<!-- 
-  <div class="row">
-    <div class="col-xs-3" id="see">
-      <a href="/options" class="btn btn-block btn-lg btn-warning">Explore</a>
-    </div>
-  </div>
-</div> -->

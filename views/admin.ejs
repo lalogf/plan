@@ -4,7 +4,7 @@
 <div class="container pagination-centered" style="background-color: rgba(0,0,0, 0.5); border-radius:20px">
   <div class="row">
     <div class="col-xs-4 col-xs-offset-3">
-      <p style="font-size: 30px; color: white; text-align:center"> Hello! <%= user.first_name %></p>
+      <p style="font-size: 30px; color: white; text-align:center"> Hello <%= user.first_name %> <%= user.last_name %>!</p>
     </div>
     <div class="col-xs-2">
       <a class="btn btn-danger btn-lg .col-md-4" href="/logout">Logout</a>
