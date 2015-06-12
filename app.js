@@ -9,7 +9,8 @@ var express = require('express'),
     passport = require('passport'),
     util = require('util'),
     GoogleStrategy = require('passport-google').Strategy,
-    engine = require('ejs-locals');
+    engine = require('ejs-locals'),
+    cool = require('cool-ascii-faces');
 
 
 //Google
