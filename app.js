@@ -26,7 +26,6 @@ var app = express();
 
 
 //To store local js and css files
-app.use(express.static(__dirname + '/public'));
 
 
 app.set("view engine", "ejs");
@@ -42,6 +41,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(methodOverride("_method"));
 
+//To store local js and css files
 app.use(express.static(__dirname + '/public'));
 
 
