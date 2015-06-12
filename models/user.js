@@ -1,10 +1,10 @@
 "use strict";
 
 var bcrypt = require('bcrypt'),
-salt = bcrypt.genSaltSync(10);
+    salt = bcrypt.genSaltSync(10);
 
 var passport = require('passport'),
-localStrategy = require('passport-local').Strategy;
+    localStrategy = require('passport-local').Strategy;
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
