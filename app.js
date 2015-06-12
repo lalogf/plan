@@ -93,6 +93,7 @@ app.post('/signup', function (req, res){
 
 
 app.get('/', function (req, res){
+    res.send(cool());
     var templateData={
         messages: req.flash('info')
     };
