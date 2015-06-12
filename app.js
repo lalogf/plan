@@ -22,22 +22,6 @@ passport.deserializeUser(function(obj, done) {
 });
 
 
-passport.use(new GoogleStrategy({
-    returnURL: 'http://localhost:3000/',
-    realm: 'http://localhost:3000/'
-  },
-  function(identifier, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
-      
-      // To keep the example simple, the user's Google profile is returned to
-      // represent the logged-in user. 
-      profile.identifier = identifier;
-      return done(null, profile);
-    });
-  }
-));
-
 var app = express();
 
 
@@ -61,35 +45,34 @@ app.use(methodOverride("_method"));
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(session({
-  keys: ['key']
-}));
 
+
+app.use(session( {
+  secret: 'thisismysecretkey',
+  name: 'chocolate chip',
+  maxage: 3600000
+  })
+);
 
 app.use(flash());
 
+app.use(session({
+  keys: ['key']
+}));
 //Google
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.get('/auth/google', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/admin');
-  });
-
-
-app.get('/auth/google/return', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/admin');
-});
-
 app.get('/login', function(req, res){
   res.render('login', { user: req.user });
 });
+
+app.post('/login', passport.authenticate("local", {
+    successRedirect: "/admin",
+    failureRedirect: "/login"
+}));
 
 app.get('/logout', function(req, res){
   req.logout();
@@ -97,6 +80,15 @@ app.get('/logout', function(req, res){
 });
 
 
+app.post('/signup', function (req, res){
+    models.User.createNewUser({
+        first_name: req.body.firstname,
+        last_name: req.body.lastname,
+        username: req.body.username,
+        password: req.body.password
+    });
+    res.redirect('/admin');
+});
 
 
 app.get('/', function (req, res){
@@ -132,7 +124,7 @@ app.get('/options/:id', function (req, res){
 
 
 app.get('/admin', function (req, res){
-    if(req.isAuthenticated() && req.user.emails[0].value ==="lalogf@gmail.com"){
+    if(req.isAuthenticated() && req.user.username ==="lalogf"){
     var templateData = {
         messages: req.flash('info'),
         user: req.user
