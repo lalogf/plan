@@ -9,8 +9,7 @@ var express = require('express'),
     passport = require('passport'),
     util = require('util'),
     GoogleStrategy = require('passport-google').Strategy,
-    engine = require('ejs-locals'),
-    cool = require('cool-ascii-faces');
+    engine = require('ejs-locals');
 
 
 //Google
@@ -93,7 +92,6 @@ app.post('/signup', function (req, res){
 
 
 app.get('/', function (req, res){
-    res.send(cool());
     var templateData={
         messages: req.flash('info')
     };

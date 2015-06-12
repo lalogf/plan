@@ -31,23 +31,6 @@ module.exports = function(sequelize, DataTypes) {
           password: this.hashPass(userInfo.password)
         });
       } 
-      // ,authorize: function (userInfo, err, success){
-      //   User.find({
-      //     where: {
-      //       username: userInfo.username
-      //     }
-      //   }).done(function (error, user) {
-      //     if(user){
-      //       if(User.comparePass(userInfo.password, user.password)){
-      //        console.log("You are authorized!");
-      //      } else {
-      //       console.log("Wrong password buddy!");
-      //     }
-      //   } else {
-      //     console.log("User is not even found...");
-      //   }
-      // });
-      // }
     }
   });
 
