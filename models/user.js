@@ -34,28 +34,27 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-passport.use(new localStrategy({
-  // by default, local strategy uses username and password
-  usernameField: 'username',
-  passwordField: 'password'
-}, function (username, password, done){
-  User.find({
-    where: {
-      username: username
-    }
-  }).done(function(err, user){
-    if(!user){
-      console.log("Not user was even found");
-      return done(null, false)
-    } else if (user) {
-      if (User.comparePass(password, user.password)){
-        return done(null, user)
-      } else {
-        console.log("Passwords don't match");
-        done(null, false) 
+  passport.use(new localStrategy({
+    usernameField: 'username',
+    passwordField: 'password'
+  }, function (username, password, done){
+    User.find({
+      where: {
+        username: username
       }
-    }
-  })
-}));
-return User;
+    }).done(function(err, user){
+      if(!user){
+        console.log("Not user was even found");
+        return done(null, false)
+      } else if (user) {
+        if (User.comparePass(password, user.password)){
+          return done(null, user)
+        } else {
+          console.log("Passwords don't match");
+          done(null, false) 
+        }
+      }
+    })
+  }));
+  return User;
 };

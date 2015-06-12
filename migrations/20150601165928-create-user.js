@@ -35,24 +35,24 @@ module.exports = {
   }
 };
 
-passport.use(new localStrategy({
-    username: 'username',
-    password: 'password'
-  }, function(username, password, done) {
-      User.find({
-        where: {
-          username: username
-        }
-      }).done(function(error, user) {
-        if (user) {
-          if (User.comparePass(password, user.password)) {
-            done(null, user);
-          } else {
-            done(null, null);
-          }
-        } else {
-          done(null, null);
-        }
-      });
-    }
-  ));
+// passport.use(new localStrategy({
+//     username: 'username',
+//     password: 'password'
+//   }, function(username, password, done) {
+//       User.find({
+//         where: {
+//           username: username
+//         }
+//       }).done(function(error, user) {
+//         if (user) {
+//           if (User.comparePass(password, user.password)) {
+//             done(null, user);
+//           } else {
+//             done(null, null);
+//           }
+//         } else {
+//           done(null, null);
+//         }
+//       });
+//     }
+//   ));

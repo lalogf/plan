@@ -59,7 +59,6 @@ app.use(flash());
 app.use(session({
   keys: ['key']
 }));
-//Google
 
 app.use(passport.initialize());
 app.use(passport.session());
