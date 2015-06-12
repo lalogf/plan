@@ -4,10 +4,52 @@
 	<div class="row pagination-centered">
 		<div class="col-xs-4 col-xs-offset-4">
 			<%if(!user){%> 
-				<a class="btn btn-success btn-lg .col-md-4" href="/auth/google">Login</a>
+			<form method="post" action="/login">
+				<div class="modal-body" style="background-color:rgba(255, 255, 255, 0.7)">
+					<label> Username</label>
+					<input id="username" name="username" class="form-control" placeholder="Username">
+					<br>
+					<label>Password</label>
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password">
+				</div>
+				<div class="modal-footer">
+					<button id="" type="submit" class="btn btn-success">Login</button>
+					<a href="" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Sign up</a>
+				</div>
+			</form>
 			<%} else{%>
-				<a class="btn btn-danger btn-lg .col-md-4" href="/logout">Logout</a>
+			<a class="btn btn-danger btn-lg .col-md-4" href="/logout">Logout</a>
 			<%}%>
 		</div>
 	</div>
 </div>
+
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Create new user</h4>
+				</div>
+				<form method="post" action="/signup">
+					<div class="modal-body">
+						<label> First Name</label>
+						<input name="firstname" id="first_name" class="form-control" placeholder="Name">
+						<br>
+						<label> Last Name</label>
+						<input name="lastname" id="last_name" class="form-control" placeholder="Last Name">
+						<br>
+						<label> Username</label>
+						<input name="username" id="user_name" class="form-control" placeholder="Username">
+						<br>
+						<label>Password</label>
+						<input type="password" name="password" id="user_password" class="form-control" placeholder="Password">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button id="save-user" type="submit" class="btn btn-success">Save changes</button>
+					</div>
+				</form>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
