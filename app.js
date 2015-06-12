@@ -23,9 +23,7 @@ passport.deserializeUser(function(obj, done) {
 
 
 passport.use(new GoogleStrategy({
-    // returnURL: 'https://ghastly-ghost-7309.herokuapp.com/auth/google/return',
-    // realm: 'https://ghastly-ghost-7309.herokuapp.com/'
-    returnURL: 'http://localhost:3000/auth/google/return',
+    returnURL: 'http://localhost:3000/',
     realm: 'http://localhost:3000/'
   },
   function(identifier, profile, done) {
@@ -95,7 +93,7 @@ app.get('/login', function(req, res){
 
 app.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 

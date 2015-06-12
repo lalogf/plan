@@ -1,23 +1,23 @@
 <% layout ('layout') %>
 
-<div class="container">
-  <div class="row pagination-centered text-centered" style="margin: 10px" >
-    <div class="col-md-6 col-md-offset-3 text-centered" style="background-color: rgba(0, 0, 0, 0.8); border-radius:20px">
-      <script>
-      var country = geoplugin_countryName();
-      $(window).load(function(){
-        $("#where").html("Hello dear friend from " + country + "!")
-      })
-      </script>
+<div class="container pagination-centered">
+  <div class="row " style="margin: 10px" >
+    <div class="col-md-8 col-md-offset-2 text-centered" style="background-color: rgba(0, 0, 0, 0.8); border-radius:20px">
+      // <script>
+      // var country = geoplugin_countryName();
+      // $(window).load(function(){
+      //   $("#where").html("Hello dear friend from Peru" + country + "!")
+      // })
+      // </script>
 
-      <h4 id="where" style="color:white"></h4>
+      <h4 id="where" style="color:white">Hello dear friend from Peru</h4><br>
       <p style="color:white">Here you'll find the best option to get a new phone and mobile plan</p>
     </div>
   </div>
 
    <div class="row firststep" sytle="margin:10px">
     <div class="col-xs-8 col-xs-offset-2 yellow" style=" border-radius:20px; color:white; text-align:center">
-      <p>Start by choosing the kind of contract you'd like</p>
+      <p style="font-size: 25px; font-family: helvetica">Start by choosing the kind of contract you'd like</p>
     </div>
     <div class="col-md-4 col-md-offset-2">
       <div class="grid-menu clearfix" style="text align:center">
@@ -41,7 +41,7 @@
   
   <div style="display:none" class="row" id="maincarriers">
     <div class="col-xs-8 col-xs-offset-2 blue" style="border-radius:20px; color:white; text-align:center">
-        <p>Choose your current carrier</p>
+        <p style="font-size: 25px; font-family: helvetica">Choose your current carrier</p>
     </div> 
 
     <% var colors = ["blue", "yellow" , "green" , "red", "turquoise", "black", "brown"]%>
@@ -68,7 +68,7 @@
   
   <div style="display:none" class="row" id="pricerange">
     <div class="col-xs-8 col-xs-offset-2 green" style="border-radius:20px; color:white; text-align:center">
-      <p>Now choose how much you're paying currently or you'd like to pay</p>
+      <p style="font-size: 25px; font-family: helvetica">Now choose how much you're paying currently or you'd like to pay</p>
     </div>       
       <div class="grid-box blue col-md-2"><a href="/options/1" ><span> < - 80 </span></a></div>
       <div class="grid-box yellow col-md-2"><a href="/options/2"><span> 80 - 100 </span></a></div>
